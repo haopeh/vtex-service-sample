@@ -29,6 +29,11 @@
     "husky": "^4.3.6",
     "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "vtex.rewriter": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.rewriter@1.53.3/public/@types/vtex.rewriter"
+  },
+  "dependencies": {
+    "@vtex/api": "^6.45.15",
+    "twilio": "^4.11.1"
   }
 }

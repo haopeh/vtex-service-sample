@@ -6,7 +6,9 @@
   "description": "Reference app for VTEX IO Services",
   "mustUpdateAt": "2018-01-04",
   "categories": [],
-  "dependencies": {},
+  "dependencies": {
+    "vtex.catalog-api-proxy": "0.x"
+  },
   "builders": {
     "node": "6.x",
     "docs": "0.x"
@@ -24,10 +26,30 @@
       }
     },
     {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "vtexsgdemostore.vtexcommercestable.com.br",
+        "path": "/api/catalog/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "vtexsgdemostore.vtexcommercestable.com.br",
+        "path": "/api/catalog_system/*"
+      }
+    },
+    {
       "name": "colossus-fire-event"
     },
     {
       "name": "colossus-write-logs"
+    },
+    {
+      "name": "vtex.catalog-api-proxy:catalog-proxy"
+    },
+    {
+      "name": "vtex.catalog-api-proxy:authenticated-catalog-proxy"
     }
   ],
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"

@@ -9,6 +9,10 @@
     "status": {
       "path": "/_v/status/:code",
       "public": true
+    },
+    "catalog": {
+      "path": "/_v/catalogs/:level",
+      "public": true
     }
   }
 }

@@ -13,6 +13,10 @@
     "catalog": {
       "path": "/_v/catalogs/:level",
       "public": true
+    },
+    "skus": {
+      "path": "/_v/skus/:productId",
+      "public": true
     }
   }
 }

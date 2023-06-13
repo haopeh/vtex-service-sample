@@ -11,6 +11,7 @@ import { Clients } from './clients'
 import { status } from './middlewares/status'
 import { validate } from './middlewares/validate'
 import { getCatalog } from './middlewares/category'
+import { getSku } from './middlewares/sku'
 
 const TIMEOUT_MS = 800
 
@@ -74,6 +75,9 @@ export default new Service({
     }),
     catalog: method({
       GET: [getCatalog],
+    }),
+    skus: method({
+      GET: [getSku],
     }),
   },
 })

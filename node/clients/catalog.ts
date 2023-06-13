@@ -7,6 +7,7 @@ import type {
 import { AppClient } from '@vtex/api'
 import { stringify } from 'qs'
 import type { Category } from '@vtex/api/lib/clients/apps/catalogGraphQL/category'
+import type { SKU } from '@vtex/api/lib/clients/apps/catalogGraphQL/sku'
 
 const inflightKey = ({ baseURL, url, params, headers }: RequestConfig) => {
   const segmentToken = headers['x-vtex-segment']
@@ -36,6 +37,11 @@ export class Catalog extends AppClient {
   public categories = (treeLevel: number) =>
     this.get<Category[]>(`/pub/category/tree/${treeLevel}/`, {
       metric: 'catalog-categories',
+    })
+
+  public getSkusById = (productId: number) =>
+    this.get<SKU[]>(`/pub/products/variations/${productId}`, {
+      metric: `catalog-product`,
     })
 
   private get = <T = any>(url: string, config: RequestConfig = {}) => {

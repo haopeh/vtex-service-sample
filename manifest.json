@@ -36,7 +36,21 @@
       "name": "outbound-access",
       "attrs": {
         "host": "vtexsgdemostore.vtexcommercestable.com.br",
+        "path": "/api/checkout/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "vtexsgdemostore.vtexcommercestable.com.br",
         "path": "/api/catalog_system/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "vtexsgdemostore.vtexcommercestable.com.br",
+        "path": "/api/*"
       }
     },
     {

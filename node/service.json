@@ -17,6 +17,10 @@
     "skus": {
       "path": "/_v/skus/:productId",
       "public": true
+    },
+    "cartOrders": {
+      "path": "/_v/cartOrders/:createCart",
+      "public": true
     }
   }
 }

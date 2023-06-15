@@ -20,7 +20,7 @@ export class Checkout extends JanusClient {
     })
   }
 
-  public getCart = (forceNewCart?: boolean) =>
+  public getOrCreateCart = (forceNewCart?: boolean) =>
     this.get<OrderForm>(this.routes.getCart(forceNewCart), {
       metric: 'checkout-cart-page',
     })

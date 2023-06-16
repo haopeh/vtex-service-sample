@@ -10,9 +10,10 @@ import { LRUCache, method, Service } from '@vtex/api'
 import { Clients } from './clients'
 import { status } from './middlewares/status'
 import { validate } from './middlewares/validate'
-import { getCatalog } from './middlewares/category'
 import { getSku } from './middlewares/sku'
 import { getCartPage, getOrCreateCart } from './middlewares/checkout'
+import { getProductAndSkuIDs } from './middlewares/ProductAndSkuId'
+import { getCatalog } from './middlewares/category'
 
 const TIMEOUT_MS = 800
 
@@ -85,6 +86,9 @@ export default new Service({
     }),
     orders: method({
       GET: [getCartPage],
+    }),
+    productAndSKUId: method({
+      GET: [getProductAndSkuIDs],
     }),
   },
 })

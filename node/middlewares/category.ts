@@ -8,13 +8,7 @@ export async function getCatalog(ctx: Context, next: () => Promise<any>) {
 
   const { level } = params
 
-  console.info('Received tree level:', level)
-
-  const response = await catalogClient.categories(parseInt(level as string, 10))
-
-  console.info('catalog response:', response)
-
-  ctx.body = response
+  ctx.body = await catalogClient.categories(parseInt(level as string, 10))
 
   await next()
 }

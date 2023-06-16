@@ -21,7 +21,12 @@ export class Checkout extends JanusClient {
   }
 
   public getOrCreateCart = (forceNewCart?: boolean) =>
-    this.get<OrderForm>(this.routes.getCart(forceNewCart), {
+    this.get<OrderForm>(this.routes.getOrCreateCart(forceNewCart), {
+      metric: 'checkout-get-cart-page',
+    })
+
+  public getAllOrdersCart = (orderFormId?: string) =>
+    this.get<OrderForm>(this.routes.getAllOrdersCart(orderFormId), {
       metric: 'checkout-cart-page',
     })
 
@@ -58,8 +63,10 @@ export class Checkout extends JanusClient {
     const base = '/api/checkout/pub'
 
     return {
-      getCart: (forceNewCart?: boolean) =>
+      getOrCreateCart: (forceNewCart?: boolean) =>
         `${base}/orderForm?forceNewCart=${forceNewCart}`,
+      getAllOrdersCart: (orderFormId?: string) =>
+        `${base}/orderForm/${orderFormId}`,
     }
   }
 }

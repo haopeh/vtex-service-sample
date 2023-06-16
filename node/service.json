@@ -21,6 +21,10 @@
     "cartOrders": {
       "path": "/_v/cartOrders/:createCart",
       "public": true
+    },
+    "orders": {
+      "path": "/_v/cartPage/:formOrderId",
+      "public": true
     }
   }
 }

@@ -14,6 +14,8 @@ export async function getSku(ctx: Context, next: () => Promise<any>) {
     parseInt(productId as string, 10)
   )
 
+  ctx.set('Access-Control-Allow-Origin', '*')
+  ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
   console.info('catalog response:', response)
 
   ctx.body = response

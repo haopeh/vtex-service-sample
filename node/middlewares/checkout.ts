@@ -14,7 +14,8 @@ export async function getOrCreateCart(ctx: Context, next: () => Promise<any>) {
   console.info('the response:', response)
 
   ctx.body = response
-
+  ctx.set('Access-Control-Allow-Origin', '*')
+  ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
   await next()
 }
 
@@ -36,6 +37,7 @@ export async function getCartPage(ctx: Context, next: () => Promise<any>) {
   console.info('the response:', response)
 
   ctx.body = response
-
+  ctx.set('Access-Control-Allow-Origin', '*')
+  ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
   await next()
 }

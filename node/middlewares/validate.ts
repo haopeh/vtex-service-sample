@@ -18,6 +18,7 @@ export async function validate(ctx: Context, next: () => Promise<any>) {
   const codeNumber = parseInt(code as string, 10)
 
   ctx.state.code = codeNumber
-
+  ctx.set('Access-Control-Allow-Origin', '*')
+  ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
   await next()
 }

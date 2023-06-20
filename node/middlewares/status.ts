@@ -22,7 +22,6 @@ export async function status(ctx: Context, next: () => Promise<any>) {
   ctx.status = responseStatus
   ctx.body = data
   ctx.set('Cache-Control', headers['cache-control'])
-  ctx.set('Access-Control-Allow-Origin', '*')
-  ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
+
   await next()
 }

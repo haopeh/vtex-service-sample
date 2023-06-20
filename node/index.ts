@@ -67,6 +67,11 @@ declare global {
   }
 }
 
+const setCors = (ctx: Context) => {
+  ctx.set('Access-Control-Allow-Origin', '*')
+  ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
+}
+
 // Export a service that defines route handlers and client options.
 export default new Service({
   clients,
@@ -76,19 +81,19 @@ export default new Service({
       GET: [validate, status],
     }),
     catalog: method({
-      GET: [getCatalog],
+      GET: [getCatalog, setCors],
     }),
     skus: method({
-      GET: [getSku],
+      GET: [getSku, setCors],
     }),
     cartOrders: method({
-      GET: [getOrCreateCart],
+      GET: [getOrCreateCart, setCors],
     }),
     orders: method({
-      GET: [getCartPage],
+      GET: [getCartPage, setCors],
     }),
     productAndSKUId: method({
-      GET: [getProductAndSkuIDs],
+      GET: [getProductAndSkuIDs, setCors],
     }),
   },
 })

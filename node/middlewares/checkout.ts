@@ -1,3 +1,5 @@
+import { json } from 'co-body'
+
 export async function getOrCreateCart(ctx: Context, next: () => Promise<any>) {
   const {
     vtex: {
@@ -29,8 +31,6 @@ export async function getCartPage(ctx: Context, next: () => Promise<any>) {
 
   const { formOrderId } = params
 
-  console.info('-----', params)
-  console.info('ofid-----', formOrderId)
   const id = formOrderId as string
   const response = await checkoutClient.getAllOrdersCart(id)
 
@@ -41,4 +41,24 @@ export async function getCartPage(ctx: Context, next: () => Promise<any>) {
   await next()
 }
 
-// todo add shipping data
+export async function addCartItems(
+  ctx: Context,
+  next: () => Promise<OrderForm>
+) {
+  const {
+    clients: { checkout: checkoutClient },
+    vtex: {
+      route: { params },
+    },
+  } = ctx
+
+  const body = await json(ctx.req)
+
+  // console.info('the body:', body)
+  const { formOrderId } = params
+
+  console.info('the orderFormId:', formOrderId)
+
+  ctx.body = await checkoutClient.addItem(formOrderId, body)
+  await next()
+}

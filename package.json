@@ -23,7 +23,6 @@
   "devDependencies": {
     "@types/node": "^12.12.21",
     "@vtex/prettier-config": "^0.3.6",
-    "@vtex/danger": "^0.2.7",
     "eslint": "^7.16.0",
     "eslint-config-vtex": "^12.9.3",
     "husky": "^4.3.6",
@@ -33,7 +32,9 @@
     "vtex.rewriter": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.rewriter@1.53.3/public/@types/vtex.rewriter"
   },
   "dependencies": {
+    "@types/koa-bodyparser": "^4.3.10",
     "@vtex/api": "^6.45.15",
+    "koa-bodyparser": "^4.4.1",
     "twilio": "^4.11.1"
   }
 }

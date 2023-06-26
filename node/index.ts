@@ -11,7 +11,11 @@ import { Clients } from './clients'
 import { status } from './middlewares/status'
 import { validate } from './middlewares/validate'
 import { getSku } from './middlewares/sku'
-import { getCartPage, getOrCreateCart } from './middlewares/checkout'
+import {
+  addCartItems,
+  getCartPage,
+  getOrCreateCart,
+} from './middlewares/checkout'
 import { getProductAndSkuIDs } from './middlewares/ProductAndSkuId'
 import { getCatalog } from './middlewares/category'
 
@@ -72,7 +76,6 @@ const setCors = (ctx: Context) => {
   ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
 }
 
-// Export a service that defines route handlers and client options.
 export default new Service({
   clients,
   routes: {
@@ -94,6 +97,10 @@ export default new Service({
     }),
     productAndSKUId: method({
       GET: [getProductAndSkuIDs, setCors],
+    }),
+    addItems: method({
+      // add items to cart
+      POST: [addCartItems, setCors],
     }),
   },
 })

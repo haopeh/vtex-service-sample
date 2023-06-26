@@ -362,3 +362,15 @@ interface RatesAndBenefitsData {
     teaserType: string
   }>
 }
+
+interface OrderItem {
+  quantity: number
+  seller: string
+  id: string
+  index: number
+  price: number
+}
+
+interface OrderItems {
+  orderItems: OrderItem[]
+}

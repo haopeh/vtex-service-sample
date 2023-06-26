@@ -30,6 +30,13 @@ export class Checkout extends JanusClient {
       metric: 'checkout-cart-page',
     })
 
+  public addItem = (orderFormId: string | string[], items: any) =>
+    this.post<OrderForm>(
+      this.routes.addItem(orderFormId),
+      { orderItems: [items] },
+      { metric: 'checkout-addItem' }
+    )
+
   protected get = <T>(url: string, config: RequestConfig = {}) => {
     config.headers = {
       ...config.headers,
@@ -38,6 +45,18 @@ export class Checkout extends JanusClient {
     config.baseURL = BASE_URL
 
     return this.http.get<T>(url, config).catch(statusToError) as Promise<T>
+  }
+
+  protected post = <T>(url: string, data?: any, config: RequestConfig = {}) => {
+    config.headers = {
+      ...config.headers,
+      ...this.getCommonHeaders(),
+    }
+    config.baseURL = BASE_URL
+
+    return this.http
+      .post<T>(url, data, config)
+      .catch(statusToError) as Promise<T>
   }
 
   private getCommonHeaders = () => {
@@ -67,6 +86,8 @@ export class Checkout extends JanusClient {
         `${base}/orderForm?forceNewCart=${forceNewCart}`,
       getAllOrdersCart: (orderFormId?: string) =>
         `${base}/orderForm/${orderFormId}`,
+      addItem: (orderFormId?: string | string[]) =>
+        `${base}/orderForm/${orderFormId}/items`,
     }
   }
 }

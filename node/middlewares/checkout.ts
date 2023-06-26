@@ -59,6 +59,8 @@ export async function addCartItems(
 
   console.info('the orderFormId:', formOrderId)
 
-  ctx.body = await checkoutClient.addItem(formOrderId, body)
+  const vtexResponse = await checkoutClient.addItem(formOrderId, body)
+
+  ctx.body = vtexResponse.items
   await next()
 }

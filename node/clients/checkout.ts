@@ -41,7 +41,17 @@ export class Checkout extends JanusClient {
     this.post<OrderForm>(
       this.routes.updateItem(orderFormId),
       { orderItems: [items] },
-      { metric: 'checkout-addItem' }
+      { metric: 'checkout-updateItem' }
+    )
+
+  public addShippingData = (
+    orderFormId: string | string[],
+    shippingData: any
+  ) =>
+    this.post<OrderForm>(
+      this.routes.addShippingData(orderFormId),
+      { shippingData },
+      { metric: 'checkout-addShippingData' }
     )
 
   protected get = <T>(url: string, config: RequestConfig = {}) => {
@@ -97,6 +107,8 @@ export class Checkout extends JanusClient {
         `${base}/orderForm/${orderFormId}/items`,
       updateItem: (orderFormId?: string | string[]) =>
         `${base}/orderForm/${orderFormId}/items/update`,
+      addShippingData: (orderFormId?: string | string[]) =>
+        `${base}/orderForm/${orderFormId}/attachments/shippingData`,
     }
   }
 }

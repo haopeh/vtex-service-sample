@@ -33,6 +33,10 @@
     "updateItems": {
       "path": "/_v/cartItems/update/:formOrderId",
       "public": true
+    },
+    "addShippingData": {
+      "path": "/_v/cartItems/shippingData/:formOrderId",
+      "public": true
     }
   }
 }

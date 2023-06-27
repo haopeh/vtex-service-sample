@@ -1,0 +1,149 @@
+{
+  "info": {
+    "_postman_id": "8e167db6-a05b-44cd-8a1f-196c394e3350",
+    "name": "vtex",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "get products",
+      "item": [
+        {
+          "name": "1. get catalog",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/catalogs/2",
+              "protocol": "https",
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": ["_v", "catalogs", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "2. get product id and sku id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/productAndSKUId/2",
+              "protocol": "https",
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": ["_v", "productAndSKUId", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "3. get products by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/skus/2",
+              "protocol": "https",
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": ["_v", "skus", "2"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "cart page",
+      "item": [
+        {
+          "name": "1. get or create cart",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartOrders/false",
+              "protocol": "https",
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": ["_v", "cartOrders", "false"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "2. get cart page",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartPage/cd931e6fe5224a93b2864b7e7361ca1d",
+              "protocol": "https",
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": ["_v", "cartPage", "cd931e6fe5224a93b2864b7e7361ca1d"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "3. add cart items",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "name",
+                "value": "zzj",
+                "type": "default",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"quantity\": 25,\n    \"seller\": \"1\",\n    \"id\": \"2\",\n    \"index\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartItems/42bec8d2502440ee82c83f629bb98816",
+              "protocol": "https",
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": ["_v", "cartItems", "42bec8d2502440ee82c83f629bb98816"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "vtex-name",
+      "value": "vtexsgdemostore"
+    },
+    {
+      "key": "your-schema-name",
+      "value": "v0"
+    },
+    {
+      "key": "local-token",
+      "value": "eyJhbGciOiJFUzI1NiIsImtpZCI6IkFCQTlFRkRENDgxQjlCNkFFMkU4MjlENDAxNTBBOEYxOTI0RDlENkUiLCJ0eXAiOiJqd3QifQ.eyJzdWIiOiJqaW5neWkubGlAdGhvdWdodHdvcmtzLmNvbSIsImFjY291bnQiOiJ2dGV4c2dkZW1vc3RvcmUiLCJhdWRpZW5jZSI6ImFkbWluIiwic2VzcyI6ImUyNzA4N2FjLWRkYTMtNDRiNy1hNWEwLTU3OTEwOWEzODI4NiIsImV4cCI6MTY4NjA0MzU3MywidXNlcklkIjoiODQxNzUwMmMtZjNkNS00ZjQ4LTg0MjUtZjY1ZWNkNDdjZjFjIiwiaWF0IjoxNjg1OTU3MTczLCJpc3MiOiJ0b2tlbi1lbWl0dGVyIiwianRpIjoiMjU3NjM2ZTktOGE3Ny00ZmMyLWI4NjAtNjgzNmI3NTU0YjFkIn0.PrCeUsa2EPbntNGhb9248kmC_QeOR0Tsbs7pA3qgnxDKqB2MUQU7JnYKzzVGr27Jq_m9ysu4FygE7aBRwgt2mg"
+    }
+  ]
+}

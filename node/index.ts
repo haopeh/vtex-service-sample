@@ -15,6 +15,8 @@ import {
   addCartItems,
   getCartPage,
   getOrCreateCart,
+  updateCartItems,
+  // updateCartItems
 } from './middlewares/checkout'
 import { getCatalog } from './middlewares/category'
 
@@ -97,6 +99,10 @@ export default new Service({
     addItems: method({
       // add items to cart
       POST: [addCartItems, setCors],
+    }),
+    updateItems: method({
+      // update item in cart
+      POST: [updateCartItems, setCors],
     }),
   },
 })

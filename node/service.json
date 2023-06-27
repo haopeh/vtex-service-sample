@@ -29,6 +29,10 @@
     "addItems": {
       "path": "/_v/cartItems/:formOrderId",
       "public": true
+    },
+    "updateItems": {
+      "path": "/_v/cartItems/update/:formOrderId",
+      "public": true
     }
   }
 }

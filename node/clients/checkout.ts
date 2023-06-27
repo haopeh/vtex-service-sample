@@ -25,7 +25,7 @@ export class Checkout extends JanusClient {
       metric: 'checkout-get-cart-page',
     })
 
-  public getAllOrdersCart = (orderFormId?: string) =>
+  public getAllOrdersCart = (orderFormId?: string | string[]) =>
     this.get<OrderForm>(this.routes.getAllOrdersCart(orderFormId), {
       metric: 'checkout-cart-page',
     })
@@ -33,6 +33,13 @@ export class Checkout extends JanusClient {
   public addItem = (orderFormId: string | string[], items: any) =>
     this.post<OrderForm>(
       this.routes.addItem(orderFormId),
+      { orderItems: [items] },
+      { metric: 'checkout-addItem' }
+    )
+
+  public updateItem = (orderFormId: string | string[], items: any) =>
+    this.post<OrderForm>(
+      this.routes.updateItem(orderFormId),
       { orderItems: [items] },
       { metric: 'checkout-addItem' }
     )
@@ -84,10 +91,12 @@ export class Checkout extends JanusClient {
     return {
       getOrCreateCart: (forceNewCart?: boolean) =>
         `${base}/orderForm?forceNewCart=${forceNewCart}`,
-      getAllOrdersCart: (orderFormId?: string) =>
+      getAllOrdersCart: (orderFormId?: string | string[] | undefined) =>
         `${base}/orderForm/${orderFormId}`,
       addItem: (orderFormId?: string | string[]) =>
         `${base}/orderForm/${orderFormId}/items`,
+      updateItem: (orderFormId?: string | string[]) =>
+        `${base}/orderForm/${orderFormId}/items/update`,
     }
   }
 }

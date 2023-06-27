@@ -97,7 +97,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"quantity\": 25,\n    \"seller\": \"1\",\n    \"id\": \"2\",\n    \"index\": 0\n}",
+              "raw": "{\n    \"quantity\": 1,\n    \"seller\": \"1\",\n    \"id\": \"5\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -105,10 +105,45 @@
               }
             },
             "url": {
-              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartItems/42bec8d2502440ee82c83f629bb98816",
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartItems/cd931e6fe5224a93b2864b7e7361ca1d",
               "protocol": "https",
               "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
-              "path": ["_v", "cartItems", "42bec8d2502440ee82c83f629bb98816"]
+              "path": ["_v", "cartItems", "cd931e6fe5224a93b2864b7e7361ca1d"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "4. update cart items",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "name",
+                "value": "zzj",
+                "type": "default",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"quantity\": 2,\n    \"seller\": \"1\",\n    \"index\": \"0\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartItems/update/cd931e6fe5224a93b2864b7e7361ca1d",
+              "protocol": "https",
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": [
+                "_v",
+                "cartItems",
+                "update",
+                "cd931e6fe5224a93b2864b7e7361ca1d"
+              ]
             }
           },
           "response": []

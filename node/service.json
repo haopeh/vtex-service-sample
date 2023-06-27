@@ -26,10 +26,6 @@
       "path": "/_v/cartPage/:formOrderId",
       "public": true
     },
-    "productAndSKUId": {
-      "path": "/_v/productAndSKUId/:categoryId",
-      "public": true
-    },
     "addItems": {
       "path": "/_v/cartItems/:formOrderId",
       "public": true

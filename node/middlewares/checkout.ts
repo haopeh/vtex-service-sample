@@ -93,3 +93,23 @@ export async function updateCartItems(ctx: Context, next: () => Promise<void>) {
   ctx.body = vtexResponse.items
   await next()
 }
+
+export async function addShippingData(ctx: Context, next: () => Promise<void>) {
+  const {
+    clients: { checkout: checkoutClient },
+    vtex: {
+      route: { params },
+    },
+  } = ctx
+
+  const body = await json(ctx.req)
+
+  const { formOrderId } = params
+
+  console.info('order id', formOrderId)
+
+  ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
+  ctx.set('Access-Control-Allow-Origin', '*')
+  ctx.body = await checkoutClient.addShippingData(formOrderId, body)
+  await next()
+}

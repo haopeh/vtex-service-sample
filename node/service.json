@@ -15,7 +15,7 @@
       "public": true
     },
     "skus": {
-      "path": "/_v/skus/:productId",
+      "path": "/_v/skus/:categoryId",
       "public": true
     },
     "cartOrders": {

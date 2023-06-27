@@ -1,5 +1,5 @@
 interface ProductIdToSKUId {
-  data: Data
+  data: Record<string, number[]>
   range: Range
 }
 

@@ -18,7 +18,7 @@ export class PvtCatalog extends JanusClient {
   }
 
   public getProductAndSkuIDs = (categoryId: number) =>
-    this.get<ProductIdToSKUId[]>(
+    this.get<ProductIdToSKUId>(
       `api/catalog_system/pvt/products/GetProductAndSkuIds?categoryId=${categoryId}`,
       {
         metric: `catalog-productId-and-sku`,

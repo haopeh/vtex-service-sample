@@ -16,7 +16,6 @@ import {
   getCartPage,
   getOrCreateCart,
 } from './middlewares/checkout'
-import { getProductAndSkuIDs } from './middlewares/ProductAndSkuId'
 import { getCatalog } from './middlewares/category'
 
 const TIMEOUT_MS = 800
@@ -94,9 +93,6 @@ export default new Service({
     }),
     orders: method({
       GET: [getCartPage, setCors],
-    }),
-    productAndSKUId: method({
-      GET: [getProductAndSkuIDs, setCors],
     }),
     addItems: method({
       // add items to cart

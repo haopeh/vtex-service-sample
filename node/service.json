@@ -15,7 +15,7 @@
       "public": true
     },
     "skus": {
-      "path": "/_v/skus/:productId",
+      "path": "/_v/skus/:categoryId",
       "public": true
     },
     "cartOrders": {
@@ -24,10 +24,6 @@
     },
     "orders": {
       "path": "/_v/cartPage/:formOrderId",
-      "public": true
-    },
-    "productAndSKUId": {
-      "path": "/_v/productAndSKUId/:categoryId",
       "public": true
     },
     "addItems": {

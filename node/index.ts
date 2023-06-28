@@ -13,6 +13,7 @@ import { validate } from './middlewares/validate'
 import { getSku } from './middlewares/sku'
 import {
   addCartItems,
+  addPaymentData,
   addShippingData,
   getCartPage,
   getOrCreateCart,
@@ -108,6 +109,10 @@ export default new Service({
     addShippingData: method({
       // update item in cart
       POST: [addShippingData, setCors],
+    }),
+    addPaymentData: method({
+      // update item in cart
+      POST: [addPaymentData, setCors],
     }),
   },
 })

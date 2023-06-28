@@ -38,8 +38,8 @@
       "path": "/_v/cartAttachments/shippingData/:formOrderId",
       "public": true
     },
-    "addPaymentData": {
-      "path": "/_v/cartAttachments/paymentData/:formOrderId",
+    "addLogisticAndPaymentData": {
+      "path": "/_v/cartAttachments/logisticAndPaymentData/:formOrderId",
       "public": true
     }
   }

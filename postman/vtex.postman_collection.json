@@ -98,10 +98,10 @@
               }
             },
             "url": {
-              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartItems/fc4272680b954be4a0264427c998f797",
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartItems/10e23605551c4c4bb5e648ce6a168f5e",
               "protocol": "https",
               "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
-              "path": ["_v", "cartItems", "fc4272680b954be4a0264427c998f797"]
+              "path": ["_v", "cartItems", "10e23605551c4c4bb5e648ce6a168f5e"]
             }
           },
           "response": []
@@ -149,27 +149,27 @@
               }
             },
             "url": {
-              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartAttachments/shippingData/96db167196764b1486cd73ac61e7cc5e",
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartAttachments/shippingData/10e23605551c4c4bb5e648ce6a168f5e",
               "protocol": "https",
               "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
               "path": [
                 "_v",
                 "cartAttachments",
                 "shippingData",
-                "96db167196764b1486cd73ac61e7cc5e"
+                "10e23605551c4c4bb5e648ce6a168f5e"
               ]
             }
           },
           "response": []
         },
         {
-          "name": "6. add logistic info",
+          "name": "6. add logistic info and payment data",
           "request": {
             "method": "POST",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"logisticsInfo\": [\n        {\n            \"itemIndex\": 0,\n            \"selectedDeliveryChannel\": \"delivery\",\n            \"selectedSla\": \"normal\"\n        }\n    ]\n}",
+              "raw": "{\n    \"logisticsInfo\": [\n        {\n            \"itemIndex\": 0,\n            \"selectedDeliveryChannel\": \"delivery\",\n            \"selectedSla\": \"normal\"\n        }\n    ],\n         \"payments\": [\n          {\n               \"paymentSysytem\": 1,\n               \"paymentSystemName\": \"2C2P\",\n               \"group\": \"redirect\",\n               \"installments\": 3,\n               \"installmentsInterestRate\": 0,\n               \"installmentsValue\": 100,\n               \"value\": 300,\n               \"referenceValue\": 300,\n               \"hasDefaultBillingAddress\": false\n          }\n     ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -177,42 +177,14 @@
               }
             },
             "url": {
-              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartAttachments/shippingData/96db167196764b1486cd73ac61e7cc5e",
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartAttachments/logisticAndPaymentData/10e23605551c4c4bb5e648ce6a168f5e",
               "protocol": "https",
               "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
               "path": [
                 "_v",
                 "cartAttachments",
-                "shippingData",
-                "96db167196764b1486cd73ac61e7cc5e"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "7. add paymentdata",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n     \"payments\": [\n          {\n               \"paymentSysytem\": 1,\n               \"paymentSystemName\": \"2C2P\",\n               \"group\": \"redirect\",\n               \"installments\": 3,\n               \"installmentsInterestRate\": 0,\n               \"installmentsValue\": 100,\n               \"value\": 300,\n               \"referenceValue\": 300,\n               \"hasDefaultBillingAddress\": false\n          }\n     ]\n}\n",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartItems/paymentData/9c5c871d60b94b3fa983cc0bcf9079ca",
-              "protocol": "https",
-              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
-              "path": [
-                "_v",
-                "cartItems",
-                "paymentData",
-                "9c5c871d60b94b3fa983cc0bcf9079ca"
+                "logisticAndPaymentData",
+                "10e23605551c4c4bb5e648ce6a168f5e"
               ]
             }
           },

@@ -50,7 +50,7 @@ export class Checkout extends JanusClient {
   ) =>
     this.post<OrderForm>(
       this.routes.addShippingData(orderFormId),
-      { shippingData },
+      shippingData,
       { metric: 'checkout-addShippingData' }
     )
 

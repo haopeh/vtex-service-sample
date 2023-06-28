@@ -50,16 +50,14 @@ export class Checkout extends JanusClient {
   ) =>
     this.post<OrderForm>(
       this.routes.addShippingData(orderFormId),
-      { shippingData },
+      shippingData,
       { metric: 'checkout-addShippingData' }
     )
 
   public addPaymentData = (orderFormId: string | string[], paymentData: any) =>
-    this.post<void>(
-      this.routes.addPaymentData(orderFormId),
-      { paymentData },
-      { metric: 'checkout-addPaymentData' }
-    )
+    this.post<void>(this.routes.addPaymentData(orderFormId), paymentData, {
+      metric: 'checkout-addPaymentData',
+    })
 
   protected get = <T>(url: string, config: RequestConfig = {}) => {
     config.headers = {
@@ -114,8 +112,10 @@ export class Checkout extends JanusClient {
         `${base}/orderForm/${orderFormId}/items`,
       updateItem: (orderFormId?: string | string[]) =>
         `${base}/orderForm/${orderFormId}/items/update`,
+      // https://vtexsgdemostore.vtexcommercestable.com.br/api/checkout/pub/orderForm/{orderFormId}/attachments/shippingData
       addShippingData: (orderFormId?: string | string[]) =>
         `${base}/orderForm/${orderFormId}/attachments/shippingData`,
+      // https://{accountName}.{environment}.com.br/api/checkout/pub/orderForm/{orderFormId}/attachments/paymentData
       addPaymentData: (orderFormId?: string | string[]) =>
         `${base}/orderForm/${orderFormId}/attachments/paymentData`,
     }

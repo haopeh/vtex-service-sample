@@ -87,14 +87,7 @@
           "name": "3. add cart items",
           "request": {
             "method": "POST",
-            "header": [
-              {
-                "key": "name",
-                "value": "zzj",
-                "type": "default",
-                "disabled": true
-              }
-            ],
+            "header": [],
             "body": {
               "mode": "raw",
               "raw": "{\n    \"quantity\": 1,\n    \"seller\": \"1\",\n    \"id\": \"5\"\n}",
@@ -117,17 +110,10 @@
           "name": "4. update cart items",
           "request": {
             "method": "POST",
-            "header": [
-              {
-                "key": "name",
-                "value": "zzj",
-                "type": "default",
-                "disabled": true
-              }
-            ],
+            "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"quantity\": 2,\n    \"seller\": \"1\",\n    \"index\": \"0\"\n}",
+              "raw": "{\n    \"quantity\": 0,\n    \"seller\": \"1\",\n    \"index\": \"1\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -142,6 +128,34 @@
                 "_v",
                 "cartItems",
                 "update",
+                "cd931e6fe5224a93b2864b7e7361ca1d"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "5. add shippingdata",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clearAddressIfPostalCodeNotFound\": false,\n  \"selectedAddresses\": [\n    {\n      \"addressType\": \"residential\",\n      \"receiverName\": \"receiver name\",\n      \"addressId\": \"c3701fc4c61b4d1b91f67e81415db44d\",\n      \"postalCode\": \"12345-000\",\n      \"city\": \"Rio de Janeiro\",\n      \"state\": \"RJ\",\n      \"country\": \"CN\",\n      \"street\": \"Praia de Botafogo\",\n      \"number\": \"300\",\n      \"neighborhood\": \"Botafogo\",\n      \"complement\": \"3rd floor\",\n      \"reference\": \"Grey building\",\n      \"geoCoordinates\": [\n        -47.924747467041016\n      ]\n    }\n  ],\n  \"logisticsInfo\": [\n    {\n      \"itemIndex\": 0,\n      \"selectedDeliveryChannel\": \"delivery\",\n      \"selectedSla\": \"normal\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartItems/shippingdata/cd931e6fe5224a93b2864b7e7361ca1d",
+              "protocol": "https",
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": [
+                "_v",
+                "cartItems",
+                "shippingdata",
                 "cd931e6fe5224a93b2864b7e7361ca1d"
               ]
             }

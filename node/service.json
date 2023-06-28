@@ -35,11 +35,11 @@
       "public": true
     },
     "addShippingData": {
-      "path": "/_v/cartItems/shippingData/:formOrderId",
+      "path": "/_v/cartAttachments/shippingData/:formOrderId",
       "public": true
     },
     "addPaymentData": {
-      "path": "/_v/cartItems/paymentData/:formOrderId",
+      "path": "/_v/cartAttachments/paymentData/:formOrderId",
       "public": true
     }
   }

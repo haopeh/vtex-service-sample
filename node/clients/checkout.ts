@@ -54,6 +54,13 @@ export class Checkout extends JanusClient {
       { metric: 'checkout-addShippingData' }
     )
 
+  public addPaymentData = (orderFormId: string | string[], paymentData: any) =>
+    this.post<void>(
+      this.routes.addPaymentData(orderFormId),
+      { paymentData },
+      { metric: 'checkout-addPaymentData' }
+    )
+
   protected get = <T>(url: string, config: RequestConfig = {}) => {
     config.headers = {
       ...config.headers,
@@ -109,6 +116,8 @@ export class Checkout extends JanusClient {
         `${base}/orderForm/${orderFormId}/items/update`,
       addShippingData: (orderFormId?: string | string[]) =>
         `${base}/orderForm/${orderFormId}/attachments/shippingData`,
+      addPaymentData: (orderFormId?: string | string[]) =>
+        `${base}/orderForm/${orderFormId}/attachments/paymentData`,
     }
   }
 }

@@ -37,6 +37,10 @@
     "addShippingData": {
       "path": "/_v/cartItems/shippingData/:formOrderId",
       "public": true
+    },
+    "addPaymentData": {
+      "path": "/_v/cartItems/paymentData/:formOrderId",
+      "public": true
     }
   }
 }

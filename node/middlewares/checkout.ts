@@ -1,5 +1,4 @@
 import { json } from 'co-body'
-// import { readFileSync } from "fs";
 
 export async function getOrCreateCart(ctx: Context, next: () => Promise<any>) {
   const {
@@ -9,7 +8,6 @@ export async function getOrCreateCart(ctx: Context, next: () => Promise<any>) {
     clients: { checkout: checkoutClient },
   } = ctx
 
-  console.info('pa-----', params)
   const { forceNewCart } = params
   const n = (forceNewCart as string) === 'true'
 
@@ -32,7 +30,6 @@ export async function getCartPage(ctx: Context, next: () => Promise<any>) {
   const id = formOrderId as string
 
   ctx.body = await checkoutClient.getAllOrdersCart(id)
-  console.info('ctx.body', ctx.body)
   await next()
 }
 
@@ -64,12 +61,11 @@ export async function addCartItems(ctx: Context, next: () => Promise<void>) {
   const currentForm = await checkoutClient.getAllOrdersCart(formOrderId)
   const currentItems = currentForm.items
 
-  console.info('currentItems', currentItems)
-  console.info('orderItem request', orderItem)
+  // console.info('currentItems', currentItems)
+  // console.info('orderItem request', orderItem)
   const updatedItem = updateItemQuantity(currentItems, orderItem)
   const vtexResponse = await checkoutClient.addItem(formOrderId, updatedItem)
 
-  console.info('vtexResponse', vtexResponse)
   ctx.body = vtexResponse.items
   ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
   ctx.set('Access-Control-Allow-Origin', '*')
@@ -87,8 +83,6 @@ export async function updateCartItems(ctx: Context, next: () => Promise<void>) {
   const body = await json(ctx.req)
 
   const { formOrderId } = params
-
-  console.info('order id', formOrderId)
 
   const vtexResponse = await checkoutClient.updateItem(formOrderId, body)
 
@@ -111,17 +105,18 @@ export async function addShippingData(ctx: Context, next: () => Promise<void>) {
   const { formOrderId } = params
 
   console.info('order id', formOrderId)
-  console.info(body)
 
   ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
   ctx.set('Access-Control-Allow-Origin', '*')
   ctx.body = await checkoutClient.addShippingData(formOrderId, body)
-  console.info(ctx.body)
 
   await next()
 }
 
-export async function addPaymentData(ctx: Context, next: () => Promise<void>) {
+export async function addLogisticAndPaymentData(
+  ctx: Context,
+  next: () => Promise<void>
+) {
   const {
     clients: { checkout: checkoutClient },
     vtex: {
@@ -133,12 +128,11 @@ export async function addPaymentData(ctx: Context, next: () => Promise<void>) {
 
   const { formOrderId } = params
 
-  console.info('order id', formOrderId)
-
   ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
   ctx.set('Access-Control-Allow-Origin', '*')
-  ctx.body = await checkoutClient.addPaymentData(formOrderId, body)
-  // since the vtex api returns an empty body, we need to return the body we want
-  // ctx.body.paymentData=readFileSync()
+  await checkoutClient.addShippingData(formOrderId, body.logisticsInfo)
+
+  ctx.body = await checkoutClient.addPaymentData(formOrderId, body.payments)
+  // since we do not configure the payment method, the paymentData is not returned
   await next()
 }

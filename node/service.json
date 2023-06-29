@@ -33,6 +33,12 @@
     "updateItems": {
       "path": "/_v/cartItems/update/:formOrderId",
       "public": true
+    },
+    "searchProducts": {
+      "path": "_v/products/search/:productName"
+    },
+    "searchProductsWithFilter": {
+      "path": "_v/products/search"
     }
   }
 }

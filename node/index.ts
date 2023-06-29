@@ -19,6 +19,7 @@ import {
   // updateCartItems
 } from './middlewares/checkout'
 import { getCatalog } from './middlewares/category'
+import { searchProducts, searchProductsWithFilter } from './middlewares/search'
 
 const TIMEOUT_MS = 800
 
@@ -103,6 +104,12 @@ export default new Service({
     updateItems: method({
       // update item in cart
       POST: [updateCartItems, setCors],
+    }),
+    searchProducts: method({
+      GET: [searchProducts, setCors],
+    }),
+    searchProductsWithFilter: method({
+      GET: [searchProductsWithFilter, setCors],
     }),
   },
 })

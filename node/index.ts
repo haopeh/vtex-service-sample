@@ -118,7 +118,7 @@ export default new Service({
       GET: [searchProducts, setCors],
     }),
     searchProductsWithFilter: method({
-      GET: [searchProductsWithFilter, setCors],
+      POST: [searchProductsWithFilter, setCors],
     }),
   },
 })

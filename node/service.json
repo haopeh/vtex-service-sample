@@ -43,10 +43,12 @@
       "public": true
     },
     "searchProducts": {
-      "path": "_v/products/search/:productName"
+      "path": "/_v/products/search/:productName",
+      "public": true
     },
     "searchProductsWithFilter": {
-      "path": "_v/products/search"
+      "path": "/_v/products/search",
+      "public": true
     }
   }
 }

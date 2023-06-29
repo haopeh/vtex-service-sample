@@ -32,6 +32,9 @@ export async function searchProductsWithFilter(
 
   const args = (await json(ctx.req)) as SearchArgs
 
+  // eslint-disable-next-line no-console
+  console.log(args)
+
   await Promise.resolve(catalog.searchProductsWithFilter(args))
     .then((result) => {
       ctx.body = result

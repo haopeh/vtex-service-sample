@@ -71,13 +71,16 @@ export class Catalog extends AppClient {
       this.removeSpecialCharacters(decodeURIComponent(query ?? '').trim())
     )
 
+    // eslint-disable-next-line no-console
+    console.log('the sanitized query is:', sanitizedQuery)
+
     if (hideUnavailableItems) {
       const segmentData = (this.context as CustomIOContext).segment
 
       salesChannel = segmentData?.channel.toString() ?? ''
     }
 
-    let url = `/pub/products/search/${sanitizedQuery}`
+    let url = `/pub/products/search/${sanitizedQuery}?`
 
     if (category && !query) {
       url += `&fq=C:/${category}/`
@@ -114,6 +117,9 @@ export class Catalog extends AppClient {
     if (to != null && to > -1) {
       url += `&_to=${to}`
     }
+
+    // eslint-disable-next-line no-console
+    console.log('the final url is:', url)
 
     return url
   }

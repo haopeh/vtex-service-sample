@@ -13,10 +13,11 @@ import { validate } from './middlewares/validate'
 import { getSku } from './middlewares/sku'
 import {
   addCartItems,
+  addLogisticAndPaymentData,
+  addShippingData,
   getCartPage,
   getOrCreateCart,
   updateCartItems,
-  // updateCartItems
 } from './middlewares/checkout'
 import { getCatalog } from './middlewares/category'
 import { searchProducts, searchProductsWithFilter } from './middlewares/search'
@@ -104,6 +105,14 @@ export default new Service({
     updateItems: method({
       // update item in cart
       POST: [updateCartItems, setCors],
+    }),
+    addShippingData: method({
+      // update item in cart
+      POST: [addShippingData, setCors],
+    }),
+    addLogisticAndPaymentData: method({
+      // update item in cart
+      POST: [addLogisticAndPaymentData, setCors],
     }),
     searchProducts: method({
       GET: [searchProducts, setCors],

@@ -34,6 +34,14 @@
       "path": "/_v/cartItems/update/:formOrderId",
       "public": true
     },
+    "addShippingData": {
+      "path": "/_v/cartAttachments/shippingData/:formOrderId",
+      "public": true
+    },
+    "addLogisticAndPaymentData": {
+      "path": "/_v/cartAttachments/logisticAndPaymentData/:formOrderId",
+      "public": true
+    },
     "searchProducts": {
       "path": "_v/products/search/:productName"
     },

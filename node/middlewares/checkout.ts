@@ -8,7 +8,6 @@ export async function getOrCreateCart(ctx: Context, next: () => Promise<any>) {
     clients: { checkout: checkoutClient },
   } = ctx
 
-  console.info('pa-----', params)
   const { forceNewCart } = params
   const n = (forceNewCart as string) === 'true'
 
@@ -31,7 +30,6 @@ export async function getCartPage(ctx: Context, next: () => Promise<any>) {
   const id = formOrderId as string
 
   ctx.body = await checkoutClient.getAllOrdersCart(id)
-
   await next()
 }
 
@@ -63,6 +61,8 @@ export async function addCartItems(ctx: Context, next: () => Promise<void>) {
   const currentForm = await checkoutClient.getAllOrdersCart(formOrderId)
   const currentItems = currentForm.items
 
+  // console.info('currentItems', currentItems)
+  // console.info('orderItem request', orderItem)
   const updatedItem = updateItemQuantity(currentItems, orderItem)
   const vtexResponse = await checkoutClient.addItem(formOrderId, updatedItem)
 
@@ -84,12 +84,55 @@ export async function updateCartItems(ctx: Context, next: () => Promise<void>) {
 
   const { formOrderId } = params
 
-  console.info('order id', formOrderId)
-
   const vtexResponse = await checkoutClient.updateItem(formOrderId, body)
 
   ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
   ctx.set('Access-Control-Allow-Origin', '*')
   ctx.body = vtexResponse.items
+  await next()
+}
+
+export async function addShippingData(ctx: Context, next: () => Promise<void>) {
+  const {
+    clients: { checkout: checkoutClient },
+    vtex: {
+      route: { params },
+    },
+  } = ctx
+
+  const body = await json(ctx.req)
+
+  const { formOrderId } = params
+
+  console.info('order id', formOrderId)
+
+  ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
+  ctx.set('Access-Control-Allow-Origin', '*')
+  ctx.body = await checkoutClient.addShippingData(formOrderId, body)
+
+  await next()
+}
+
+export async function addLogisticAndPaymentData(
+  ctx: Context,
+  next: () => Promise<void>
+) {
+  const {
+    clients: { checkout: checkoutClient },
+    vtex: {
+      route: { params },
+    },
+  } = ctx
+
+  const body = await json(ctx.req)
+
+  const { formOrderId } = params
+
+  ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
+  ctx.set('Access-Control-Allow-Origin', '*')
+  await checkoutClient.addShippingData(formOrderId, body.logisticsInfo)
+
+  ctx.body = await checkoutClient.addPaymentData(formOrderId, body.payments)
+  // since we do not configure the payment method, the paymentData is not returned
   await next()
 }

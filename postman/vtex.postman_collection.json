@@ -28,10 +28,10 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/productAndSKUId/2",
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/productAndSKUId/1",
               "protocol": "https",
               "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
-              "path": ["_v", "productAndSKUId", "2"]
+              "path": ["_v", "productAndSKUId", "1"]
             }
           },
           "response": []
@@ -75,10 +75,10 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartPage/cd931e6fe5224a93b2864b7e7361ca1d",
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartPage/7f352537196241f5bbeb165e20a8faf4",
               "protocol": "https",
               "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
-              "path": ["_v", "cartPage", "cd931e6fe5224a93b2864b7e7361ca1d"]
+              "path": ["_v", "cartPage", "7f352537196241f5bbeb165e20a8faf4"]
             }
           },
           "response": []
@@ -87,17 +87,10 @@
           "name": "3. add cart items",
           "request": {
             "method": "POST",
-            "header": [
-              {
-                "key": "name",
-                "value": "zzj",
-                "type": "default",
-                "disabled": true
-              }
-            ],
+            "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"quantity\": 1,\n    \"seller\": \"1\",\n    \"id\": \"5\"\n}",
+              "raw": "{\n    \"quantity\": 1,\n    \"seller\": \"1\",\n    \"id\": \"1\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -105,10 +98,10 @@
               }
             },
             "url": {
-              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartItems/cd931e6fe5224a93b2864b7e7361ca1d",
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartItems/10e23605551c4c4bb5e648ce6a168f5e",
               "protocol": "https",
               "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
-              "path": ["_v", "cartItems", "cd931e6fe5224a93b2864b7e7361ca1d"]
+              "path": ["_v", "cartItems", "10e23605551c4c4bb5e648ce6a168f5e"]
             }
           },
           "response": []
@@ -117,17 +110,10 @@
           "name": "4. update cart items",
           "request": {
             "method": "POST",
-            "header": [
-              {
-                "key": "name",
-                "value": "zzj",
-                "type": "default",
-                "disabled": true
-              }
-            ],
+            "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"quantity\": 2,\n    \"seller\": \"1\",\n    \"index\": \"0\"\n}",
+              "raw": "{\n    \"quantity\": 0,\n    \"seller\": \"1\",\n    \"index\": \"1\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -143,6 +129,62 @@
                 "cartItems",
                 "update",
                 "cd931e6fe5224a93b2864b7e7361ca1d"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "5. add shippingdata",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"clearAddressIfPostalCodeNotFound\": false,\n    \"selectedAddresses\": [\n        {\n            \"addressType\": \"residential\",\n            \"receiverName\": \"receiver name\",\n            \"addressId\": \"c3701fc4c61b4d1b91f67e81415db44d\",\n            \"postalCode\": \"610000\",\n            \"city\": \"Chengdu\",\n            \"state\": \"Sichuan\",\n            \"country\": \"CNH\",\n            \"street\": \"Tianfu Road\",\n            \"number\": \"300\",\n            \"neighborhood\": \"E1\",\n            \"complement\": \"7rd floor\",\n            \"reference\": \"Grey building\"\n        }\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartAttachments/shippingData/10e23605551c4c4bb5e648ce6a168f5e",
+              "protocol": "https",
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": [
+                "_v",
+                "cartAttachments",
+                "shippingData",
+                "10e23605551c4c4bb5e648ce6a168f5e"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "6. add logistic info and payment data",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"logisticsInfo\": [\n        {\n            \"itemIndex\": 0,\n            \"selectedDeliveryChannel\": \"delivery\",\n            \"selectedSla\": \"normal\"\n        }\n    ],\n         \"payments\": [\n          {\n               \"paymentSysytem\": 1,\n               \"paymentSystemName\": \"2C2P\",\n               \"group\": \"redirect\",\n               \"installments\": 3,\n               \"installmentsInterestRate\": 0,\n               \"installmentsValue\": 100,\n               \"value\": 300,\n               \"referenceValue\": 300,\n               \"hasDefaultBillingAddress\": false\n          }\n     ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartAttachments/logisticAndPaymentData/10e23605551c4c4bb5e648ce6a168f5e",
+              "protocol": "https",
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": [
+                "_v",
+                "cartAttachments",
+                "logisticAndPaymentData",
+                "10e23605551c4c4bb5e648ce6a168f5e"
               ]
             }
           },

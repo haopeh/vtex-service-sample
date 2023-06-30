@@ -20,7 +20,11 @@ import {
   updateCartItems,
 } from './middlewares/checkout'
 import { getCatalog } from './middlewares/category'
-import { searchProducts, searchProductsWithFilter } from './middlewares/search'
+import {
+  productSearchComplete,
+  searchProducts,
+  searchProductsWithFilter,
+} from './middlewares/search'
 
 const TIMEOUT_MS = 800
 
@@ -119,6 +123,9 @@ export default new Service({
     }),
     searchProductsWithFilter: method({
       POST: [searchProductsWithFilter, setCors],
+    }),
+    productSearchComplete: method({
+      GET: [productSearchComplete, setCors],
     }),
   },
 })

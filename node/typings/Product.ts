@@ -107,6 +107,24 @@ interface SearchArgs {
   hideUnavailableItems: boolean | null
 }
 
+// autocomplete
+interface CompleteItem {
+  criteria: string | null
+  href: string
+  name: string
+  thumbUrl: string | null
+  thumb: string
+  items: ProductItem[]
+}
+
+interface ProductItem {
+  productId: string
+  itemId: string
+  name: string
+  nameComplete: string
+  imageUrl: string
+}
+
 // interface Product {
 //   productId: string
 //   productName: string

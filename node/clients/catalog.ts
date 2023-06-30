@@ -54,6 +54,16 @@ export class Catalog extends AppClient {
       metric: `search-products-with-filter`,
     })
 
+  public autocomplete = (searchTerm: string) =>
+    this.get<{ itemsReturned: CompleteItem[] }>(
+      `/buscaautocomplete?productNameContains=${encodeURIComponent(
+        searchTerm
+      )}`,
+      {
+        metric: `product-autocomplete`,
+      }
+    )
+
   private productSearchUrl = ({
     query = '',
     category = '',

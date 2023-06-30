@@ -49,6 +49,10 @@
     "searchProductsWithFilter": {
       "path": "/_v/products/search",
       "public": true
+    },
+    "productSearchComplete": {
+      "path": "/_v/products/complete",
+      "public": true
     }
   }
 }

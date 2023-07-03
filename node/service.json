@@ -53,6 +53,10 @@
     "productSearchComplete": {
       "path": "/_v/products/complete",
       "public": true
+    },
+    "placeOrderFromExistingCart": {
+      "path": "/_v/orderFromExistingCart/:formOrderId",
+      "public": true
     }
   }
 }

@@ -17,6 +17,7 @@ import {
   addShippingData,
   getCartPage,
   getOrCreateCart,
+  placeOrderInExistingCart,
   updateCartItems,
 } from './middlewares/checkout'
 import { getCatalog } from './middlewares/category'
@@ -126,6 +127,9 @@ export default new Service({
     }),
     productSearchComplete: method({
       GET: [productSearchComplete, setCors],
+    }),
+    placeOrderFromExistingCart: method({
+      POST: [placeOrderInExistingCart],
     }),
   },
 })

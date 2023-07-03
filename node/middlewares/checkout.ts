@@ -1,5 +1,7 @@
 import { json } from 'co-body'
 
+import { setCors } from './cors'
+
 export async function getOrCreateCart(ctx: Context, next: () => Promise<any>) {
   const {
     vtex: {
@@ -134,5 +136,28 @@ export async function addLogisticAndPaymentData(
 
   ctx.body = await checkoutClient.addPaymentData(formOrderId, body.payments)
   // since we do not configure the payment method, the paymentData is not returned
+  await next()
+}
+
+export async function placeOrderInExistingCart(
+  ctx: Context,
+  next: () => Promise<void>
+) {
+  const {
+    clients: { checkout: checkoutClient },
+    vtex: {
+      route: { params },
+    },
+  } = ctx
+
+  const body = await json(ctx.req)
+  const { formOrderId } = params
+
+  setCors
+
+  ctx.body = await checkoutClient.placeOrderFromExistingCart(
+    formOrderId as string,
+    body.payments
+  )
   await next()
 }

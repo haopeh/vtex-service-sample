@@ -41,6 +41,18 @@
     "addLogisticAndPaymentData": {
       "path": "/_v/cartAttachments/logisticAndPaymentData/:formOrderId",
       "public": true
+    },
+    "searchProducts": {
+      "path": "/_v/products/search/:productName",
+      "public": true
+    },
+    "searchProductsWithFilter": {
+      "path": "/_v/products/search",
+      "public": true
+    },
+    "productSearchComplete": {
+      "path": "/_v/products/complete",
+      "public": true
     }
   }
 }

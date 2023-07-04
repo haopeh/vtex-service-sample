@@ -57,6 +57,10 @@
     "placeOrderFromExistingCart": {
       "path": "/_v/orderFromExistingCart/:formOrderId",
       "public": true
+    },
+    "productDetail": {
+      "path": "/_v/products/:productId",
+      "public": true
     }
   }
 }

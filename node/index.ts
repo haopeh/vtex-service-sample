@@ -22,6 +22,7 @@ import {
 } from './middlewares/checkout'
 import { getCatalog } from './middlewares/category'
 import {
+  productDetail,
   productSearchComplete,
   searchProducts,
   searchProductsWithFilter,
@@ -130,6 +131,9 @@ export default new Service({
     }),
     placeOrderFromExistingCart: method({
       POST: [placeOrderInExistingCart],
+    }),
+    productDetail: method({
+      GET: [productDetail, setCors],
     }),
   },
 })

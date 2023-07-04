@@ -64,9 +64,14 @@ export class Catalog extends AppClient {
       }
     )
 
+  public productDetail = (productId: string) =>
+    this.get<ProductDetail>(`/pub/products/variations/${productId}`, {
+      metric: `product-detail`,
+    })
+
   private productSearchUrl = ({
     query = '',
-    category = '',
+    category = 'C:/3/',
     specificationFilters,
     priceRange = '',
     collection = '',

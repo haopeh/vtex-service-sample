@@ -63,6 +63,17 @@ export class Checkout extends JanusClient {
       }
     )
 
+  public placeOrderFromExistingCart = (
+    orderFormId: string,
+    orderFormInCart: any
+  ) => {
+    return this.post<InitialOrderForm>(
+      this.routes.placeOrderFromExistingCart(orderFormId),
+      { orderFormInCart },
+      { metric: 'checkout-place-order-from-existing-cart' }
+    )
+  }
+
   protected get = <T>(url: string, config: RequestConfig = {}) => {
     config.headers = {
       ...config.headers,
@@ -120,6 +131,8 @@ export class Checkout extends JanusClient {
         `${base}/orderForm/${orderFormId}/attachments/shippingData`,
       addPaymentData: (orderFormId?: string | string[]) =>
         `${base}/orderForm/${orderFormId}/attachments/paymentData`,
+      placeOrderFromExistingCart: (orderFormId: string) =>
+        `${base}/orderForm/${orderFormId}/transaction`,
     }
   }
 }

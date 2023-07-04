@@ -209,6 +209,17 @@ interface OrderForm {
   itemsOrdination: any | null
 }
 
+interface InitialOrderInfo {
+  id: string | null
+  merchantTransactions: any[] // Not clear about the data structure
+  receiverUri: string | null
+  gatewayCallbackTemplatePath: string | null
+  orderGroup: string | null
+  merchantContextData: any // Not clear about its types
+}
+
+type InitialOrderForm = InitialOrderInfo & OrderForm
+
 interface OrderFormClientPreferencesData {
   locale: string
   optinNewsLetter: boolean | null

@@ -31,8 +31,24 @@ export async function getCartPage(ctx: Context, next: () => Promise<any>) {
 
   const id = formOrderId as string
 
-  ctx.body = await checkoutClient.getAllOrdersCart(id)
+  const body = await checkoutClient.getAllOrdersCart(id)
+
+  ctx.body = calculateTotal(body)
   await next()
+}
+
+function calculateTotal(response: OrderForm): OrderForm {
+  let total: number | undefined = 0
+
+  response.items.forEach((item) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+    total += item.priceDefinition.calculatedSellingPrice
+  })
+  response.totalizers.push({ id: 'total', name: 'Total value', value: total })
+
+  return response
 }
 
 const updateItemQuantity = (

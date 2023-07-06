@@ -75,10 +75,10 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartPage/7f352537196241f5bbeb165e20a8faf4",
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartPage/cd931e6fe5224a93b2864b7e7361ca1d",
               "protocol": "https",
               "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
-              "path": ["_v", "cartPage", "7f352537196241f5bbeb165e20a8faf4"]
+              "path": ["_v", "cartPage", "cd931e6fe5224a93b2864b7e7361ca1d"]
             }
           },
           "response": []
@@ -98,10 +98,10 @@
               }
             },
             "url": {
-              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartItems/10e23605551c4c4bb5e648ce6a168f5e",
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartItems/77b80afbe68345a88b042937d224d0e9",
               "protocol": "https",
               "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
-              "path": ["_v", "cartItems", "10e23605551c4c4bb5e648ce6a168f5e"]
+              "path": ["_v", "cartItems", "77b80afbe68345a88b042937d224d0e9"]
             }
           },
           "response": []
@@ -149,14 +149,14 @@
               }
             },
             "url": {
-              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartAttachments/shippingData/10e23605551c4c4bb5e648ce6a168f5e",
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartAttachments/shippingData/77b80afbe68345a88b042937d224d0e9",
               "protocol": "https",
               "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
               "path": [
                 "_v",
                 "cartAttachments",
                 "shippingData",
-                "10e23605551c4c4bb5e648ce6a168f5e"
+                "77b80afbe68345a88b042937d224d0e9"
               ]
             }
           },
@@ -169,7 +169,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"logisticsInfo\": [\n        {\n            \"itemIndex\": 0,\n            \"selectedDeliveryChannel\": \"delivery\",\n            \"selectedSla\": \"normal\"\n        }\n    ],\n         \"payments\": [\n          {\n               \"paymentSysytem\": 1,\n               \"paymentSystemName\": \"2C2P\",\n               \"group\": \"redirect\",\n               \"installments\": 3,\n               \"installmentsInterestRate\": 0,\n               \"installmentsValue\": 100,\n               \"value\": 300,\n               \"referenceValue\": 300,\n               \"hasDefaultBillingAddress\": false\n          }\n     ]\n}",
+              "raw": "{\n    \"logisticsInfo\": [\n        {\n            \"itemIndex\": 0,\n            \"selectedDeliveryChannel\": \"delivery\",\n            \"selectedSla\": \"normal\"\n        }\n    ],\n    \"payments\": [\n        {\n            \"paymentSysytem\": 1,\n            \"paymentSystemName\": \"2C2P\",\n            \"group\": \"redirect\",\n            \"installments\": 3,\n            \"installmentsInterestRate\": 0,\n            \"installmentsValue\": 100,\n            \"value\": 300,\n            \"referenceValue\": 300,\n            \"hasDefaultBillingAddress\": false\n        }\n    ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -186,6 +186,40 @@
                 "logisticAndPaymentData",
                 "10e23605551c4c4bb5e648ce6a168f5e"
               ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "mock payment provider",
+      "item": [
+        {
+          "name": "createPayment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"reference\": \"32478982\",\n    \"orderId\": \"v967373115140abc\",\n    \"transactionId\": \"D3AA1FC8372E430E8236649DB5EBD08E\",\n    \"paymentId\": \"F5C1A4E20D3B4E07B7E871F5B5BC9F91\",\n    \"paymentMethod\": \"FakePay\",\n    \"paymentMethodCustomCode\": null,\n    \"merchantName\": \"mystore\",\n    \"value\": 4307.23,\n    \"currency\": \"BRL\",\n    \"installments\": 1,\n    \"deviceFingerprint\": \"12ade389087fe\",\n    \"card\": {\n        \"holder\": null,\n        \"number\": null,\n        \"csc\": null,\n        \"expiration\": {\n            \"month\": null,\n            \"year\": null\n        }\n    },\n    \"miniCart\": {\n        \"shippingValue\": 11.44,\n        \"taxValue\": 10.01,\n        \"buyer\": {\n            \"id\": \"c1245228-1c68-11e6-94ac-0afa86a846a5\",\n            \"firstName\": \"John\",\n            \"lastName\": \"Doe\",\n            \"document\": \"01234567890\",\n            \"documentType\": \"CPF\",\n            \"email\": \"john.doe@example.com\",\n            \"phone\": \"+5521987654321\"\n        },\n        \"shippingAddress\": {\n            \"country\": \"BRA\",\n            \"street\": \"Praia de Botafogo St.\",\n            \"number\": \"300\",\n            \"complement\": \"3rd Floor\",\n            \"neighborhood\": \"Botafogo\",\n            \"postalCode\": \"22250040\",\n            \"city\": \"Rio de Janeiro\",\n            \"state\": \"RJ\"\n        },\n        \"billingAddress\": {\n            \"country\": \"BRA\",\n            \"street\": \"Brigadeiro Faria Lima Avenue\",\n            \"number\": \"4440\",\n            \"complement\": \"10th Floor\",\n            \"neighborhood\": \"Itaim Bibi\",\n            \"postalCode\": \"04538132\",\n            \"city\": \"São Paulo\",\n            \"state\": \"SP\"\n        },\n        \"items\": [\n            {\n                \"id\": \"132981\",\n                \"name\": \"My First Product\",\n                \"price\": 2134.90,\n                \"quantity\": 2,\n                \"discount\": 5.00\n            },\n            {\n                \"id\": \"123242\",\n                \"name\": \"My Second Product\",\n                \"price\": 21.98,\n                \"quantity\": 1,\n                \"discount\": 1.00\n            }\n        ]\n    },\n    \"url\": \"https://admin.mystore.example.com/orders/v32478982\",\n    \"callbackUrl\": \"https://api.example.com/some-path/to-notify/status-changes?an=mystore\",\n    \"returnUrl\": \"https://mystore.example.com/checkout/order/v32478982\"\n}\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://xaj1s8bdui.execute-api.ap-northeast-3.amazonaws.com/Prod/payments",
+              "protocol": "https",
+              "host": [
+                "xaj1s8bdui",
+                "execute-api",
+                "ap-northeast-3",
+                "amazonaws",
+                "com"
+              ],
+              "path": ["Prod", "payments"]
             }
           },
           "response": []

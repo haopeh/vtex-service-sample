@@ -257,7 +257,12 @@
           "request": {
             "method": "GET",
             "header": [],
-            "url": null
+            "url": {
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/products/1",
+              "protocol": "https",
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": ["_v", "products", "1"]
+            }
           },
           "response": []
         }

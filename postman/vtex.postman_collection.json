@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "8e167db6-a05b-44cd-8a1f-196c394e3350",
+    "_postman_id": "65c1f180-93c0-409c-8be2-e65235f9c1d2",
     "name": "vtex",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
@@ -75,10 +75,10 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartPage/cd931e6fe5224a93b2864b7e7361ca1d",
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartPage/7f352537196241f5bbeb165e20a8faf4",
               "protocol": "https",
               "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
-              "path": ["_v", "cartPage", "cd931e6fe5224a93b2864b7e7361ca1d"]
+              "path": ["_v", "cartPage", "7f352537196241f5bbeb165e20a8faf4"]
             }
           },
           "response": []
@@ -98,10 +98,10 @@
               }
             },
             "url": {
-              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartItems/77b80afbe68345a88b042937d224d0e9",
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartItems/10e23605551c4c4bb5e648ce6a168f5e",
               "protocol": "https",
               "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
-              "path": ["_v", "cartItems", "77b80afbe68345a88b042937d224d0e9"]
+              "path": ["_v", "cartItems", "10e23605551c4c4bb5e648ce6a168f5e"]
             }
           },
           "response": []
@@ -149,14 +149,14 @@
               }
             },
             "url": {
-              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartAttachments/shippingData/77b80afbe68345a88b042937d224d0e9",
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartAttachments/shippingData/10e23605551c4c4bb5e648ce6a168f5e",
               "protocol": "https",
               "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
               "path": [
                 "_v",
                 "cartAttachments",
                 "shippingData",
-                "77b80afbe68345a88b042937d224d0e9"
+                "10e23605551c4c4bb5e648ce6a168f5e"
               ]
             }
           },
@@ -169,7 +169,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"logisticsInfo\": [\n        {\n            \"itemIndex\": 0,\n            \"selectedDeliveryChannel\": \"delivery\",\n            \"selectedSla\": \"normal\"\n        }\n    ],\n    \"payments\": [\n        {\n            \"paymentSysytem\": 1,\n            \"paymentSystemName\": \"2C2P\",\n            \"group\": \"redirect\",\n            \"installments\": 3,\n            \"installmentsInterestRate\": 0,\n            \"installmentsValue\": 100,\n            \"value\": 300,\n            \"referenceValue\": 300,\n            \"hasDefaultBillingAddress\": false\n        }\n    ]\n}",
+              "raw": "{\n    \"logisticsInfo\": [\n        {\n            \"itemIndex\": 0,\n            \"selectedDeliveryChannel\": \"delivery\",\n            \"selectedSla\": \"normal\"\n        }\n    ],\n         \"payments\": [\n          {\n               \"paymentSysytem\": 1,\n               \"paymentSystemName\": \"2C2P\",\n               \"group\": \"redirect\",\n               \"installments\": 3,\n               \"installmentsInterestRate\": 0,\n               \"installmentsValue\": 100,\n               \"value\": 300,\n               \"referenceValue\": 300,\n               \"hasDefaultBillingAddress\": false\n          }\n     ]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -193,16 +193,30 @@
       ]
     },
     {
-      "name": "mock payment provider",
+      "name": "search products",
       "item": [
         {
-          "name": "createPayment",
+          "name": "search by name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/products/search/chair",
+              "protocol": "https",
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": ["_v", "products", "search", "chair"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "search with filter",
           "request": {
             "method": "POST",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"reference\": \"32478982\",\n    \"orderId\": \"v967373115140abc\",\n    \"transactionId\": \"D3AA1FC8372E430E8236649DB5EBD08E\",\n    \"paymentId\": \"F5C1A4E20D3B4E07B7E871F5B5BC9F91\",\n    \"paymentMethod\": \"FakePay\",\n    \"paymentMethodCustomCode\": null,\n    \"merchantName\": \"mystore\",\n    \"value\": 4307.23,\n    \"currency\": \"BRL\",\n    \"installments\": 1,\n    \"deviceFingerprint\": \"12ade389087fe\",\n    \"card\": {\n        \"holder\": null,\n        \"number\": null,\n        \"csc\": null,\n        \"expiration\": {\n            \"month\": null,\n            \"year\": null\n        }\n    },\n    \"miniCart\": {\n        \"shippingValue\": 11.44,\n        \"taxValue\": 10.01,\n        \"buyer\": {\n            \"id\": \"c1245228-1c68-11e6-94ac-0afa86a846a5\",\n            \"firstName\": \"John\",\n            \"lastName\": \"Doe\",\n            \"document\": \"01234567890\",\n            \"documentType\": \"CPF\",\n            \"email\": \"john.doe@example.com\",\n            \"phone\": \"+5521987654321\"\n        },\n        \"shippingAddress\": {\n            \"country\": \"BRA\",\n            \"street\": \"Praia de Botafogo St.\",\n            \"number\": \"300\",\n            \"complement\": \"3rd Floor\",\n            \"neighborhood\": \"Botafogo\",\n            \"postalCode\": \"22250040\",\n            \"city\": \"Rio de Janeiro\",\n            \"state\": \"RJ\"\n        },\n        \"billingAddress\": {\n            \"country\": \"BRA\",\n            \"street\": \"Brigadeiro Faria Lima Avenue\",\n            \"number\": \"4440\",\n            \"complement\": \"10th Floor\",\n            \"neighborhood\": \"Itaim Bibi\",\n            \"postalCode\": \"04538132\",\n            \"city\": \"São Paulo\",\n            \"state\": \"SP\"\n        },\n        \"items\": [\n            {\n                \"id\": \"132981\",\n                \"name\": \"My First Product\",\n                \"price\": 2134.90,\n                \"quantity\": 2,\n                \"discount\": 5.00\n            },\n            {\n                \"id\": \"123242\",\n                \"name\": \"My Second Product\",\n                \"price\": 21.98,\n                \"quantity\": 1,\n                \"discount\": 1.00\n            }\n        ]\n    },\n    \"url\": \"https://admin.mystore.example.com/orders/v32478982\",\n    \"callbackUrl\": \"https://api.example.com/some-path/to-notify/status-changes?an=mystore\",\n    \"returnUrl\": \"https://mystore.example.com/checkout/order/v32478982\"\n}\n",
+              "raw": "{\n    \"query\": \"shark\",\n    \"from\": 0,\n    \"to\": 9\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -210,19 +224,99 @@
               }
             },
             "url": {
-              "raw": "https://xaj1s8bdui.execute-api.ap-northeast-3.amazonaws.com/Prod/payments",
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/products/search",
               "protocol": "https",
-              "host": [
-                "xaj1s8bdui",
-                "execute-api",
-                "ap-northeast-3",
-                "amazonaws",
-                "com"
-              ],
-              "path": ["Prod", "payments"]
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": ["_v", "products", "search"]
             }
           },
           "response": []
+        },
+        {
+          "name": "product complete",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/products/complete?productNameContains=cha",
+              "protocol": "https",
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": ["_v", "products", "complete"],
+              "query": [
+                {
+                  "key": "productNameContains",
+                  "value": "cha"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "product detail",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "order",
+      "item": [
+        {
+          "name": "3. place order from existing cart",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "orderFormId",
+                "value": "6c80483e3d184afabe338664d1002571",
+                "type": "default",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"referenceId\": \"6c80483e3d184afabe338664d1002571\",\n    \"savePersonalData\": true,\n    \"optinNewsLetter\": false,\n    \"value\": 379496,\n    \"referenceValue\": 379496,\n    \"interestValue\": 0,\n    \"expectedOrderFormSections\": [\n        \"items\",\n        \"totalizers\",\n        \"clientProfileData\",\n        \"shippingData\",\n        \"paymentData\",\n        \"sellers\",\n        \"messages\",\n        \"marketingData\",\n        \"clientPreferencesData\",\n        \"storePreferencesData\",\n        \"giftRegistryData\",\n        \"ratesAndBenefitsData\",\n        \"openTextField\",\n        \"commercialConditionData\",\n        \"customData\"\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/orderFromExistingCart/6c80483e3d184afabe338664d1002571",
+              "protocol": "https",
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": [
+                "_v",
+                "orderFromExistingCart",
+                "6c80483e3d184afabe338664d1002571"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "3. place order from existing cart",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/cartPage/cd931e6fe5224a93b2864b7e7361ca1d",
+                  "protocol": "https",
+                  "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+                  "path": ["_v", "cartPage", "cd931e6fe5224a93b2864b7e7361ca1d"]
+                }
+              },
+              "_postman_previewlanguage": "Text",
+              "header": [],
+              "cookie": [],
+              "body": ""
+            }
+          ]
         }
       ]
     }

@@ -41,7 +41,7 @@ export async function searchProductsWithFilter(
     })
     .catch((error) => {
       // eslint-disable-next-line no-console
-      console.log(error)
+      console.log('an error occurred', error)
     })
 
   await next()

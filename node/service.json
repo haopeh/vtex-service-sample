@@ -61,6 +61,10 @@
     "productDetail": {
       "path": "/_v/products/:productId",
       "public": true
+    },
+    "allPromotions": {
+      "path": "/_v/Promotions",
+      "public": true
     }
   }
 }

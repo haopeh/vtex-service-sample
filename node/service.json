@@ -65,6 +65,10 @@
     "allPromotions": {
       "path": "/_v/Promotions",
       "public": true
+    },
+    "promotions": {
+      "path": "/_v/Promotions/:promotionsId",
+      "public": true
     }
   }
 }

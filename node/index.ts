@@ -27,7 +27,7 @@ import {
   searchProducts,
   searchProductsWithFilter,
 } from './middlewares/search'
-import { getAllPromotions } from './middlewares/promotions'
+import { getAllPromotions, getPromotions } from './middlewares/promotions'
 
 const TIMEOUT_MS = 800
 
@@ -138,6 +138,9 @@ export default new Service({
     }),
     allPromotions: method({
       GET: [getAllPromotions, setCors],
+    }),
+    promotions: method({
+      GET: [getPromotions, setCors],
     }),
   },
 })

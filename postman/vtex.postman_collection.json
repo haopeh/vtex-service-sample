@@ -1,27 +1,13 @@
 {
   "info": {
-    "_postman_id": "65c1f180-93c0-409c-8be2-e65235f9c1d2",
-    "name": "vtex",
+    "_postman_id": "e489b97d-1804-409b-b94f-1a7f1436383e",
+    "name": "vtex Copy 3",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
       "name": "get products",
       "item": [
-        {
-          "name": "1. get catalog",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/catalogs/2",
-              "protocol": "https",
-              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
-              "path": ["_v", "catalogs", "2"]
-            }
-          },
-          "response": []
-        },
         {
           "name": "2. get product id and sku id",
           "request": {
@@ -46,6 +32,20 @@
               "protocol": "https",
               "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
               "path": ["_v", "skus", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "1. get catalog",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/catalogs/2",
+              "protocol": "https",
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": ["_v", "catalogs", "2"]
             }
           },
           "response": []
@@ -322,6 +322,45 @@
               "body": ""
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "promotions",
+      "item": [
+        {
+          "name": "1. get all promotions",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Encoding",
+                "value": "*",
+                "type": "default",
+                "disabled": true
+              },
+              {
+                "key": "X-VTEX-API-AppKey",
+                "value": "app-key",
+                "type": "default"
+              },
+              {
+                "key": "X-VTEX-API-AppToken",
+                "value": "app-token",
+                "type": "default"
+              }
+            ],
+            "url": {
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/Promotions",
+              "protocol": "https",
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": ["_v", "Promotions"]
+            }
+          },
+          "response": []
         }
       ]
     }

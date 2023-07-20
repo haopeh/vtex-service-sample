@@ -146,6 +146,10 @@ export async function addLogisticAndPaymentData(
 
   const { formOrderId } = params
 
+  console.info('add logistic and payment data')
+  console.info('order id', formOrderId)
+  console.info('body', body)
+
   ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS')
   ctx.set('Access-Control-Allow-Origin', '*')
   await checkoutClient.addShippingData(formOrderId, body.logisticsInfo)

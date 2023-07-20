@@ -1,10 +1,28 @@
+import type { RequestConfig } from '@vtex/api'
+
 export async function getAllPromotions(ctx: Context, next: () => Promise<any>) {
   const {
     clients: { promotions },
   } = ctx
 
-  const response = await promotions.getAllPromotions()
+  // Extract appKey and appToken from incoming headers
+  const appKey = ctx.headers['x-vtex-api-appkey']
+  const appToken = ctx.headers['x-vtex-api-apptoken']
 
+  // Create the config object with specific headers
+  const config: RequestConfig = {
+    headers: {
+      'X-VTEX-API-AppKey': appKey,
+      'X-VTEX-API-AppToken': appToken,
+    },
+  }
+
+  console.info('header', ctx.headers)
+
+  console.info('get all promotions start')
+  const response = await promotions.getAllPromotions(config)
+
+  console.info('promotion response', response)
   ctx.body = response.items
   await next()
 }

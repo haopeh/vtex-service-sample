@@ -17,9 +17,10 @@ export class Promotions extends JanusClient {
     })
   }
 
-  public getAllPromotions = () =>
-    this.get<AllPromotions>(`/api/rnb/pvt/benefits/calculatorconfiguration`, {
+  public getAllPromotions = (config: RequestConfig) =>
+    this.get<any>(`/api/rnb/pvt/benefits/calculatorconfiguration`, {
       metric: `all-promotions`,
+      ...config,
     })
 
   public getPromotions = (promotionId: string) =>
@@ -37,7 +38,12 @@ export class Promotions extends JanusClient {
     }
     config.baseURL = BASE_URL
 
-    return this.http.get<T>(url, config).catch(statusToError) as Promise<T>
+    return this.http
+      .get<T>(url, config)
+      .then((response) => {
+        return response
+      })
+      .catch(statusToError) as Promise<T>
   }
 
   private getCommonHeaders = () => {
@@ -53,6 +59,8 @@ export class Promotions extends JanusClient {
 
     return {
       Cookie: `${segmentTokenCookie}${sessionTokenCookie}`,
+      'Content-Type': 'application/json',
+      'Accept-Encoding': 'utf-8',
     }
   }
 }

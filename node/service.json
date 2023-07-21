@@ -69,6 +69,14 @@
     "promotions": {
       "path": "/_v/Promotions/:promotionsId",
       "public": true
+    },
+    "pickuppoints": {
+      "path": "/_v/logistics/pickuppoints",
+      "public": true
+    },
+    "pickupPoint": {
+      "path": "/_v/logistics/pickupPoint",
+      "public": true
     }
   }
 }

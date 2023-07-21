@@ -79,7 +79,7 @@ export class Catalog extends AppClient {
 
   private productSearchUrl = ({
     query = '',
-    category = 'C:/3/',
+    category = '',
     specificationFilters,
     priceRange = '',
     collection = '',
@@ -105,7 +105,7 @@ export class Catalog extends AppClient {
 
     let url = `/pub/products/search/${sanitizedQuery}?`
 
-    if (category && !query) {
+    if (category) {
       url += `&fq=C:/${category}/`
     }
 

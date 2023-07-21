@@ -57,6 +57,9 @@
       "name": "colossus-fire-event"
     },
     {
+      "name": "LogisticsAdmin"
+    },
+    {
       "name": "colossus-write-logs"
     },
     {

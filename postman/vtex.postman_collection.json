@@ -344,12 +344,12 @@
               },
               {
                 "key": "X-VTEX-API-AppKey",
-                "value": "app-key",
+                "value": "vtexappkey-vtexsgdemostore-WDWTEM",
                 "type": "default"
               },
               {
                 "key": "X-VTEX-API-AppToken",
-                "value": "app-token",
+                "value": "NSISRSOBPCPHVUKKFHJXEUXBPFQHXRNVXARJZLVJJJGPEWEJSVGIIYLDLQVRSDBDXRMKREBTQMFXABTVGYXANVDFDHXUCWNOSBIVLXIQUXEMYLUNPXMPHEWNIOPZLKTO",
                 "type": "default"
               }
             ],
@@ -358,6 +358,44 @@
               "protocol": "https",
               "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
               "path": ["_v", "Promotions"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "2. get promotions by id",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept-Encoding",
+                "value": "*",
+                "type": "default",
+                "disabled": true
+              },
+              {
+                "key": "X-VTEX-API-AppKey",
+                "value": "vtexappkey-vtexsgdemostore-WDWTEM",
+                "type": "default"
+              },
+              {
+                "key": "X-VTEX-API-AppToken",
+                "value": "NSISRSOBPCPHVUKKFHJXEUXBPFQHXRNVXARJZLVJJJGPEWEJSVGIIYLDLQVRSDBDXRMKREBTQMFXABTVGYXANVDFDHXUCWNOSBIVLXIQUXEMYLUNPXMPHEWNIOPZLKTO",
+                "type": "default"
+              }
+            ],
+            "url": {
+              "raw": "https://twworkspace--vtexsgdemostore.myvtex.com/_v/Promotions/f0616f6c-1455-432b-a51f-5d652ddaa1d2",
+              "protocol": "https",
+              "host": ["twworkspace--vtexsgdemostore", "myvtex", "com"],
+              "path": [
+                "_v",
+                "Promotions",
+                "f0616f6c-1455-432b-a51f-5d652ddaa1d2"
+              ]
             }
           },
           "response": []

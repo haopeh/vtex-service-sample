@@ -23,11 +23,12 @@ export class Promotions extends JanusClient {
       ...config,
     })
 
-  public getPromotions = (promotionId: string) =>
+  public getPromotions = (promotionId: string, config: RequestConfig) =>
     this.get<PromotionsDetail>(
       `/api/rnb/pvt/calculatorconfiguration/${promotionId}`,
       {
         metric: `promotions`,
+        ...config,
       }
     )
 

@@ -4,7 +4,7 @@ interface PromotionsDetail {
   beginDateUtc: string
   endDateUtc: string
   skusGift: SkusGift
-  listSku1BuyTogether: Sku[]
+  skus: Sku[]
   type: string
   sku1Detail: Product[]
   giftDetail: Product[]

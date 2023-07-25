@@ -49,14 +49,6 @@ export class Catalog extends AppClient {
       metric: `search-products`,
     })
 
-  public productBySku = (skuIds: string[]) =>
-    this.get<Product[]>(
-      `/pub/products/search?${skuIds
-        .map((skuId) => `fq=skuId:${skuId}`)
-        .join('&')}`,
-      { metric: 'catalog-productBySku' }
-    )
-
   public searchProductsWithFilter = (args: SearchArgs) =>
     this.get<Product[]>(this.productSearchUrl(args), {
       metric: `search-products-with-filter`,

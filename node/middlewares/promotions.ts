@@ -25,7 +25,7 @@ export async function getAllPromotions(ctx: Context, next: () => Promise<any>) {
 
 export async function getPromotions(ctx: Context, next: () => Promise<any>) {
   const {
-    clients: { promotions, catalog },
+    clients: { promotions, pvtCatalog },
     vtex: {
       route: { params },
     },
@@ -60,13 +60,14 @@ export async function getPromotions(ctx: Context, next: () => Promise<any>) {
     return sku.id
   })
 
-  Promise.all([
-    catalog.productBySku(giftIds),
-    catalog.productBySku(skuIds),
-  ]).then((values) => {
-    response.giftDetail = values[0]
-    response.sku1Detail = values[1]
-  })
+  console.info('giftIds', giftIds)
+  console.info('skuIds', skuIds)
+
+  const detailPromises = skuIds.map((sku) => pvtCatalog.getContextBySkuID(sku))
+
+  response.sku1Detail = await Promise.all(detailPromises)
+  // })
+  console.info('response', response)
   ctx.body = response
   await next()
 }

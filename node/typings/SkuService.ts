@@ -27,3 +27,13 @@ interface SkuServiceValue {
   value: number
   cost: number
 }
+
+interface SkuServiceAssociation {
+  id?: number
+  skuServiceTypeId: number
+  skuServiceValueId: number
+  skuId: number
+  name: string
+  text: string
+  isActive: boolean
+}

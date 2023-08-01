@@ -33,6 +33,7 @@ import {
   getSkuService,
   createSkuServiceType,
   createSkuServiceValue,
+  createSkuServiceAssociation,
 } from './middlewares/skuService'
 
 const TIMEOUT_MS = 800
@@ -162,6 +163,9 @@ export default new Service({
     }),
     createSkuServiceValue: method({
       POST: [createSkuServiceValue, setCors],
+    }),
+    createSkuServiceAssociation: method({
+      POST: [createSkuServiceAssociation, setCors],
     }),
   },
 })

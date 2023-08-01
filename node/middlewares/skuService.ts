@@ -50,3 +50,22 @@ export async function createSkuServiceValue(
   ctx.body = response
   await next()
 }
+
+export async function createSkuServiceAssociation(
+  ctx: Context,
+  next: () => Promise<any>
+) {
+  const {
+    clients: { skuService },
+  } = ctx
+
+  const serviceAssociation = await json(ctx.req)
+  const response = await skuService.createSkuServiceAssociation(
+    serviceAssociation
+  )
+
+  console.info('response', response)
+
+  ctx.body = response
+  await next()
+}

@@ -40,6 +40,17 @@ export class SkuServiceClient extends JanusClient {
       }
     )
 
+  public createSkuServiceAssociation = (
+    skuServiceAssociation?: SkuServiceAssociation
+  ) =>
+    this.post<SkuServiceAssociation>(
+      `/api/catalog/pvt/skuservice`,
+      skuServiceAssociation,
+      {
+        metric: `skuService`,
+      }
+    )
+
   protected get = <T>(url: string, config: RequestConfig = {}) => {
     config.headers = {
       ...config.headers,

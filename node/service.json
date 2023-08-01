@@ -89,6 +89,10 @@
     "createSkuServiceValue": {
       "path": "/_v/skuServiceValue",
       "public": true
+    },
+    "createSkuServiceAssociation": {
+      "path": "/_v/skuService",
+      "public": true
     }
   }
 }

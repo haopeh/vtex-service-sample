@@ -29,7 +29,11 @@ import {
 } from './middlewares/search'
 import { getAllPromotions, getPromotions } from './middlewares/promotions'
 import { getPickupPoints, pickupPointsList } from './middlewares/pickuppoints'
-import { getSkuService } from './middlewares/skuService'
+import {
+  getSkuService,
+  createSkuServiceType,
+  createSkuServiceValue,
+} from './middlewares/skuService'
 
 const TIMEOUT_MS = 800
 
@@ -152,6 +156,12 @@ export default new Service({
     }),
     skuService: method({
       GET: [getSkuService, setCors],
+    }),
+    createSkuServiceType: method({
+      POST: [createSkuServiceType, setCors],
+    }),
+    createSkuServiceValue: method({
+      POST: [createSkuServiceValue, setCors],
     }),
   },
 })

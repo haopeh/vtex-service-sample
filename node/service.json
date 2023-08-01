@@ -79,7 +79,16 @@
       "public": true
     },
     "skuService": {
-      "path": "/_v/skuService/:skuServiceId"
+      "path": "/_v/skuService/:skuServiceId",
+      "public": true
+    },
+    "createSkuServiceType": {
+      "path": "/_v/skuServiceType",
+      "public": true
+    },
+    "createSkuServiceValue": {
+      "path": "/_v/skuServiceValue",
+      "public": true
     }
   }
 }

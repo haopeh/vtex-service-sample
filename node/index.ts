@@ -29,6 +29,7 @@ import {
 } from './middlewares/search'
 import { getAllPromotions, getPromotions } from './middlewares/promotions'
 import { getPickupPoints, pickupPointsList } from './middlewares/pickuppoints'
+import { getSkuService } from './middlewares/skuService'
 
 const TIMEOUT_MS = 800
 
@@ -148,6 +149,9 @@ export default new Service({
     }),
     pickupPoint: method({
       GET: [pickupPointsList, setCors],
+    }),
+    skuService: method({
+      GET: [getSkuService, setCors],
     }),
   },
 })

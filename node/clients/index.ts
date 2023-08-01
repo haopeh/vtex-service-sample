@@ -7,6 +7,7 @@ import { Checkout } from './checkout'
 import { PvtCatalog } from './PvtCatalog'
 import { Promotions } from './promotions'
 import { LogisticsBackup } from './logistics.backup'
+import {SkuServiceClient} from "./SkuServiceClient";
 
 // Extend the default IOClients implementation with our own custom clients.
 export class Clients extends IOClients {
@@ -36,5 +37,9 @@ export class Clients extends IOClients {
 
   public get logistics() {
     return this.getOrSet('logistics', Logistics)
+  }
+
+  public get skuService(){
+    return this.getOrSet('skuService', SkuServiceClient)
   }
 }

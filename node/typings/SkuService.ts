@@ -37,3 +37,23 @@ interface SkuServiceAssociation {
   text: string
   isActive: boolean
 }
+
+interface SkuServiceBundle {
+  Id: number
+  ServiceTypeId: number
+  Name: string
+  IsFile: boolean
+  IsGiftCard: boolean
+  IsRequired: boolean
+  Options: [
+    {
+      Id: number
+      Name: string
+      Description: string
+      PriceName: string
+      ListPrice: number
+      Price: number
+    }
+  ]
+  Attachments: []
+}

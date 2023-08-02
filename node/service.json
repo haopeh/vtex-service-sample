@@ -93,6 +93,10 @@
     "createSkuServiceAssociation": {
       "path": "/_v/skuService",
       "public": true
+    },
+    "getSkuWithContextById": {
+      "path": "/_v/skuWithContext/:skuId",
+      "public": true
     }
   }
 }

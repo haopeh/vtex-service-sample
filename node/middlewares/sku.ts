@@ -24,3 +24,21 @@ export async function getSku(ctx: Context, next: () => Promise<any>) {
 
   await next()
 }
+
+export async function getSkuWithContext(
+  ctx: Context,
+  next: () => Promise<any>
+) {
+  const {
+    vtex: {
+      route: { params },
+    },
+    clients: { pvtCatalog },
+  } = ctx
+
+  const { skuId } = params
+
+  ctx.body = await pvtCatalog.getContextBySkuID(skuId as string)
+
+  await next()
+}

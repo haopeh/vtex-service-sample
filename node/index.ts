@@ -10,7 +10,7 @@ import { LRUCache, method, Service } from '@vtex/api'
 import { Clients } from './clients'
 import { status } from './middlewares/status'
 import { validate } from './middlewares/validate'
-import { getSku } from './middlewares/sku'
+import { getSku, getSkuWithContext } from './middlewares/sku'
 import {
   addCartItems,
   addLogisticAndPaymentData,
@@ -166,6 +166,9 @@ export default new Service({
     }),
     createSkuServiceAssociation: method({
       POST: [createSkuServiceAssociation, setCors],
+    }),
+    getSkuWithContextById: method({
+      GET: [getSkuWithContext, setCors],
     }),
   },
 })

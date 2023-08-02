@@ -32,6 +32,8 @@ interface SKU {
   measures: Measure
   unitMultiplier: number
   rewardValue: number
+
+  services: []
 }
 
 interface Measure {

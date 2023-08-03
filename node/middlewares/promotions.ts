@@ -62,17 +62,16 @@ export async function getPromotions(ctx: Context, next: () => Promise<any>) {
 
   console.info('giftIds', giftIds)
   console.info('skuIds', skuIds)
-
   const detailPromises = skuIds.map((sku) => pvtCatalog.getContextBySkuID(sku))
 
-  response.sku1Detail = await Promise.all(detailPromises)
+  response.skuDetail = await Promise.all(detailPromises)
 
   response.giftDetail = await Promise.all(
     giftIds.map((gift) => pvtCatalog.getContextBySkuID(gift))
   )
 
   // })
-  console.info('response', response)
+  // console.info('response', response)
   ctx.body = response
   await next()
 }

@@ -6,7 +6,7 @@ interface PromotionsDetail {
   skusGift: SkusGift
   skus: Sku[]
   type: string
-  sku1Detail: ProductDetail[]
+  skuDetail: ProductDetail[]
   giftDetail: Product[]
 }
 

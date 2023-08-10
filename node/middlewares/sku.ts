@@ -27,7 +27,7 @@ export async function getSku(ctx: Context, next: () => Promise<any>) {
 
 export async function getSkuWithContext(
   ctx: Context,
-  next: () => Promise<any>
+  next: () => Promise<SkuContext>
 ) {
   const {
     vtex: {

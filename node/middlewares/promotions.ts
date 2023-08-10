@@ -25,7 +25,7 @@ export async function getAllPromotions(ctx: Context, next: () => Promise<any>) {
 
 export async function getPromotions(ctx: Context, next: () => Promise<any>) {
   const {
-    clients: { promotions, pvtCatalog },
+    clients: { promotions, pvtCatalog, price },
     vtex: {
       route: { params },
     },
@@ -50,28 +50,34 @@ export async function getPromotions(ctx: Context, next: () => Promise<any>) {
     config
   )
 
-  console.info('response', response)
-
-  const giftIds = response.skusGift.gifts.map((gift) => {
+  const giftIds = response.skusGift.gifts.map((gift: { id: any }) => {
     return gift.id
   })
 
-  const skuIds = response.skus.map((sku) => {
+  const skuIds = response.skus.map((sku: { id: any }) => {
     return sku.id
   })
 
-  console.info('giftIds', giftIds)
-  console.info('skuIds', skuIds)
-  const detailPromises = skuIds.map((sku) => pvtCatalog.getContextBySkuID(sku))
-
-  response.skuDetail = await Promise.all(detailPromises)
-
-  response.giftDetail = await Promise.all(
-    giftIds.map((gift) => pvtCatalog.getContextBySkuID(gift))
+  const detailPromises = skuIds.map((sku: string) =>
+    pvtCatalog.getContextBySkuID(sku)
   )
 
-  // })
-  // console.info('response', response)
+  const pricePromises = skuIds.map((sku: string) => price.skuPrice(sku, config))
+
+  const skuDetails = await Promise.all(detailPromises)
+
+  const prices = await Promise.all(pricePromises)
+
+  response.skus.forEach((sku: Sku, index: number) => {
+    const skuDetail = skuDetails[index]
+    const skuPrice = prices[index]
+
+    sku.imageUrl = skuDetail.ImageUrl
+
+    sku.productId = String(skuDetail.ProductId)
+    sku.listPrice = String(skuPrice.listPrice)
+  })
+
   ctx.body = response
   await next()
 }

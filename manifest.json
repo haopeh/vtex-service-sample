@@ -54,6 +54,13 @@
       }
     },
     {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "api.vtex.com",
+        "path": "/*"
+      }
+    },
+    {
       "name": "colossus-fire-event"
     },
     {

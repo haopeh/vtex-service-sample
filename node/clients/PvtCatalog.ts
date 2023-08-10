@@ -26,9 +26,12 @@ export class PvtCatalog extends JanusClient {
     )
 
   public getContextBySkuID = (skuId: string) =>
-    this.get<any>(`api/catalog_system/pvt/sku/stockkeepingunitbyid/${skuId}`, {
-      metric: `context-by-sku`,
-    })
+    this.get<SkuContext>(
+      `api/catalog_system/pvt/sku/stockkeepingunitbyid/${skuId}`,
+      {
+        metric: `context-by-sku`,
+      }
+    )
 
   protected get = <T>(url: string, config: RequestConfig = {}) => {
     config.headers = {

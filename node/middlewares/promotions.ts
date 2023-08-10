@@ -50,9 +50,9 @@ export async function getPromotions(ctx: Context, next: () => Promise<any>) {
     config
   )
 
-  const giftIds = response.skusGift.gifts.map((gift: { id: any }) => {
-    return gift.id
-  })
+  // const giftIds = response.skusGift.gifts.map((gift: { id: any }) => {
+  //   return gift.id
+  // })
 
   const skuIds = response.skus.map((sku: { id: any }) => {
     return sku.id
